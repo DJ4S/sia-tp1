@@ -54,26 +54,11 @@ def print_solution(solution, expanded_nodes, frontier_nodes):
             print(f"Total number of steps: {len(solution) - 1}")
             print(f"Expanded nodes: {expanded_nodes}")
             print(f"Frontier nodes: {frontier_nodes}")
-                # print the board state of each step
-    for i in range(len(solution) - 1):
-        # Encuentra la acción que llevó al estado actual desde el estado anterior
-        current_state = solution[i]
-        next_state = solution[i+1]
-        action = None
-        # Encuentra la diferencia entre los dos estados para determinar la acción
-        for row in range(len(current_state)):
-            for col in range(len(current_state[row])):
-                if current_state[row][col] != next_state[row][col]:
-                    if row < len(current_state) and current_state[row+1][col] == 'J':
-                        action = 'UP'
-                    elif row > 0 and current_state[row-1][col] == 'J':
-                        action = 'DOWN'
-                    elif col < len(current_state[row]) and current_state[row][col+1] == 'J':
-                        action = 'LEFT'
-                    elif col > 0 and current_state[row][col-1] == 'J':
-                        action = 'RIGHT'
-        print(f"Paso {i+1}) {action}")
-
+            # print the board state of each step
+            print("Solución encontrada:")
+            for step, state in enumerate(solution):
+                print(f"Paso {step}:")
+                print_board(state)
     else:
         print("Fracaso")
 
