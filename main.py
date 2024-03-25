@@ -47,7 +47,10 @@ def read_config(filename):
             params[section][key] = value
     return params
     
-
+def print_board(board):
+    for row in board:
+        print(" ".join(row))
+        
 def print_solution(solution, expanded_nodes, frontier_nodes):
     if solution:
             print("Exito!")
